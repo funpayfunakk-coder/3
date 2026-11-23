@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>С Днём рождения, Вика! 💜</title>
+<meta name="description" content="Сайт-поздравление для Вики: 22 года, 22 пожелания, музыка и конфетти.">
+<meta name="theme-color" content="#5a3ad6">
+<meta property="og:title" content="С Днём рождения, Вика! 💜">
+<meta property="og:description" content="22 года, 22 пожелания и один очень тёплый сайт.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className = 'js';</script>
+<style>
+  :root{
+    --lav-950:#1d0f45;
+    --lav-900:#2a1660;
+    --lav-700:#5a3ad6;
+    --lav-500:#8b6bff;
+    --lav-300:#cdbcff;
+    --lav-100:#f1ebff;
+    --pink:#ff5fbd;
+    --yellow:#ffd93d;
+    --mint:#5ff0c4;
+    --ink:#2a1660;
+    --font-head:'Comfortaa','Trebuchet MS',system-ui,sans-serif;
+    --font-body:'Nunito','Segoe UI',system-ui,sans-serif;
+    --font-hand:'Caveat','Segoe Script',cursive;
+    --page:min(100% - 32px, 560px);
+  }
+
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+  html,body{min-height:100%}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-size:16px;
+    color:#fff;
+    background:#2a1660;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+  body.locked{overflow:hidden}
+  button{font:inherit;color:inherit}
+  a{color:inherit}
+
+  /* ---------- фон ---------- */
+  .bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(255,95,189,.42), transparent 42%),
+      radial-gradient(circle at 88% 6%, rgba(255,217,61,.32), transparent 38%),
+      radial-gradient(circle at 82% 76%, rgba(95,240,196,.20), transparent 44%),
+      radial-gradient(circle at 14% 88%, rgba(205,188,255,.40), transparent 48%),
+      linear-gradient(160deg,#241052 0%,#4a2bbd 38%,#7b4ff2 70%,#a86bff 100%);
+  }
+  .confetti{
+    position:fixed;
+    inset:0;
+    z-index:90;
+    pointer-events:none;
+  }
+
+  /* ---------- анимации ---------- */
+  @keyframes floatHeart{
+    from{transform:translateY(10px) rotate(-8deg)}
+    to{transform:translateY(-18px) rotate(8deg)}
+  }
+  @keyframes stickerFloat{
+    0%,100%{transform:rotate(-7deg) translateY(0)}
+    50%{transform:rotate(-5deg) translateY(-7px)}
+  }
+  @keyframes giftWiggle{
+    0%,84%,100%{transform:rotate(0)}
+    88%{transform:rotate(-7deg) scale(1.02)}
+    92%{transform:rotate(6deg) scale(1.02)}
+    96%{transform:rotate(-3deg)}
+  }
+  @keyframes eqBar{
+    0%,100%{height:6px}
+    50%{height:19px}
+  }
+  @keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    12%{transform:scale(1.18)}
+    24%{transform:scale(1)}
+    36%{transform:scale(1.12)}
+    48%{transform:scale(1)}
+  }
+  @keyframes marquee{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+  @keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+  }
+  @keyframes sheetUp{
+    from{transform:translateY(42px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+  }
+  @keyframes wishPop{
+    from{opacity:0;transform:scale(.94) translateY(8px)}
+    to{opacity:1;transform:none}
+  }
+
+  /* ---------- хиро ---------- */
+  .hero{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(13px,2.4vh,22px);
+    padding:calc(26px + env(safe-area-inset-top)) 18px calc(38px + env(safe-area-inset-bottom));
+    text-align:center;
+    overflow:hidden;
+  }
+  .hearts{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .hearts span{
+    position:absolute;
+    font-size:var(--s,18px);
+    opacity:.30;
+    animation:floatHeart var(--d,6s) ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  .hero > *:not(.hearts){position:relative;z-index:1}
+
+  .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin:0;
+    padding:8px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.32);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    font-size:.8rem;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+
+  .sticker{
+    width:clamp(100px,28vw,134px);
+    aspect-ratio:1;
+    border-radius:50%;
+    display:grid;
+    place-content:center;
+    gap:0;
+    background:linear-gradient(150deg,#fff08a 0%,#ffd93d 46%,#ffab3d 100%);
+    color:#3a1f00;
+    box-shadow:
+      0 18px 40px rgba(255,180,40,.32),
+      0 0 0 8px rgba(255,255,255,.12),
+      inset 0 -6px 0 rgba(150,70,0,.16);
+    transform:rotate(-7deg);
+    animation:stickerFloat 5s ease-in-out infinite;
+  }
+  .sticker-num{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(2.5rem,9vw,3.4rem);
+    line-height:.95;
+    letter-spacing:-.03em;
+  }
+  .sticker-word{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:.82rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-top:2px;
+    opacity:.85;
+  }
+
+  .hero h1{
+    margin:0;
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(2rem,8.8vw,3.5rem);
+    line-height:1.1;
+    letter-spacing:-.015em;
+    text-wrap:balance;
+    text-shadow:0 8px 34px rgba(20,5,60,.35);
+  }
+  .hero h1 .name{
+    color:var(--yellow);
+    text-shadow:0 5px 0 rgba(255,95,189,.28), 0 10px 40px rgba(255,217,61,.35);
+  }
+
+  .lead{
+    margin:0;
+    max-width:34ch;
+    font-size:clamp(1rem,4vw,1.12rem);
+    font-weight:600;
+    line-height:1.5;
+    color:rgba(255,255,255,.92);
+    text-wrap:pretty;
+  }
+
+  .countdown{
+    display:grid;
+    gap:7px;
+    justify-items:center;
+    padding:12px 18px;
+    border-radius:22px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.3);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    box-shadow:0 14px 30px rgba(20,5,60,.18);
+  }
+  .cd-label{
+    font-size:.66rem;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.72);
+  }
+  .cd-units{display:flex;gap:clamp(10px,4vw,22px);justify-content:center}
+  .cd-unit{display:flex;flex-direction:column;align-items:center;min-width:34px}
+  .cd-unit b{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:clamp(1.2rem,4.8vw,1.45rem);
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .cd-unit i{
+    font-style:normal;
+    font-size:.6rem;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+    margin-top:3px;
+  }
+  .countdown.is-live{
+    background:linear-gradient(135deg, rgba(255,217,61,.26) 0%, rgba(255,95,189,.3) 55%, rgba(139,107,255,.34) 100%);
+    border-color:rgba(255,255,255,.5);
+    box-shadow:0 16px 36px rgba(255,95,189,.22);
+  }
+  .countdown.is-live .cd-label{color:#fff}
+  .countdown.is-live .cd-unit b{text-shadow:0 2px 18px rgba(255,95,189,.35)}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:54px;
+    padding:16px 26px;
+    border:0;
+    border-radius:999px;
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:1.02rem;
+    line-height:1.2;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-primary{
+    width:min(100%,330px);
+    color:#3a1f00;
+    background:linear-gradient(135deg,#ffe45e 0%,#ffc93c 55%,#ff9f43 100%);
+    box-shadow:0 16px 34px rgba(255,185,60,.36), inset 0 -3px 0 rgba(150,70,0,.18);
+  }
+  @media (hover:hover){
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 22px 40px rgba(255,185,60,.44), inset 0 -3px 0 rgba(150,70,0,.18)}
+  }
+  .btn-primary.is-done{
+    background:linear-gradient(135deg,#7af5c8,#5ff0c4 55%,#43d9a8);
+    box-shadow:0 16px 34px rgba(60,230,180,.3), inset 0 -3px 0 rgba(0,90,60,.16);
+    color:#053a2a;
+  }
+  .hint{
+    margin:0;
+    font-size:.8rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:rgba(255,255,255,.66);
+  }
+
+  /* ---------- бегущая строка ---------- */
+  .ticker{
+    position:relative;
+    z-index:2;
+    width:100%;
+    margin:8px 0 0;
+    padding:11px 0;
+    overflow:hidden;
+    transform:rotate(-2deg);
+    background:linear-gradient(90deg,#ffd93d 0%,#ffb84d 50%,#ffd93d 100%);
+    color:#3a1f00;
+    box-shadow:0 12px 30px rgba(20,5,60,.28);
+  }
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    gap:0;
+    white-space:nowrap;
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:.95rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    animation:marquee 34s linear infinite;
+  }
+  .ticker-track span{padding-right:28px}
+
+  /* ---------- контент ---------- */
+  main{
+    position:relative;
+    z-index:1;
+    width:var(--page);
+    margin:0 auto;
+    padding:clamp(34px,7vw,58px) 0 calc(96px + env(safe-area-inset-bottom));
+    display:grid;
+    gap:clamp(46px,10vw,76px);
+  }
+  .block{scroll-margin-top:24px}
+  .eyebrow{
+    margin:0 0 8px;
+    text-align:center;
+    font-size:.7rem;
+    font-weight:800;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.66);
+  }
+  .section-title{
+    margin:0 0 18px;
+    text-align:center;
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(1.45rem,5.6vw,1.9rem);
+    line-height:1.22;
+    text-wrap:balance;
+    text-shadow:0 6px 26px rgba(20,5,60,.3);
+  }
+
+  .card{
+    position:relative;
+    background:#fff;
+    color:var(--ink);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:28px;
+    padding:clamp(22px,6vw,34px);
+    box-shadow:0 26px 60px rgba(22,8,60,.36);
+    overflow:hidden;
+  }
+  .letter::before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto;
+    height:7px;
+    background:linear-gradient(90deg,#8b6bff,#ff5fbd 45%,#ffd93d 80%,#5ff0c4);
+  }
+  .letter p{
+    margin:0 0 1em;
+    font-size:1.04rem;
+    line-height:1.66;
+    color:#35255f;
+  }
+  .letter p strong{color:var(--lav-900)}
+  .letter p.sign{
+    margin:18px 0 0;
+    font-family:var(--font-hand);
+    font-size:1.75rem;
+    line-height:1.25;
+    color:#6a3fe0;
+  }
+
+  .card-note{
+    margin:0 0 20px;
+    font-size:.95rem;
+    font-weight:700;
+    color:#5f4f8f;
+  }
+
+  .rating{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:20px;
+  }
+  .rating li{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:12px;
+    align-items:start;
+  }
+  .rating .emoji{
+    font-size:1.45rem;
+    line-height:1.2;
+    margin-top:1px;
+  }
+  .r-top{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    font-size:.98rem;
+    font-weight:800;
+    line-height:1.3;
+  }
+  .r-top b{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:.9rem;
+    color:#6a3fe0;
+    white-space:nowrap;
+  }
+  .bar{
+    height:10px;
+    margin-top:8px;
+    border-radius:999px;
+    background:#ece5ff;
+    overflow:hidden;
+  }
+  .bar i{
+    display:block;
+    height:100%;
+    width:0;
+    border-radius:999px;
+    background:linear-gradient(90deg,#8b6bff,#ff5fbd);
+    transition:width 1.15s cubic-bezier(.2,.8,.2,1) .15s;
+  }
+  .js .reveal .bar i{width:0}
+  .js .reveal.in .bar i{width:var(--w,0%)}
+  .no-js .bar i{width:var(--w,0%)}
+  .rating small{
+    display:block;
+    margin-top:6px;
+    font-size:.78rem;
+    font-weight:700;
+    color:#63548f;
+  }
+  .rating li.zero .r-top b{color:#dc3d7a}
+  .rating li.zero .bar i{background:#f0c9d9;width:3%}
+
+  .gift-card{text-align:center}
+  .gift-emoji{
+    display:inline-block;
+    font-size:clamp(3rem,12vw,4rem);
+    line-height:1;
+    margin:2px 0 10px;
+    filter:drop-shadow(0 12px 20px rgba(122,79,240,.24));
+    animation:giftWiggle 3.2s ease-in-out infinite;
+  }
+  .gift-card > p{
+    margin:0 auto 20px;
+    max-width:31ch;
+    font-size:1rem;
+    font-weight:700;
+    line-height:1.55;
+    color:#5b4a86;
+  }
+  .btn-gift{
+    width:min(100%,300px);
+    color:#fff;
+    background:linear-gradient(135deg,#6a45e8 0%,#a53ce0 55%,#e0489f 100%);
+    box-shadow:0 16px 34px rgba(120,60,220,.38), inset 0 -3px 0 rgba(0,0,0,.16);
+  }
+  @media (hover:hover){
+    .btn-gift:hover{transform:translateY(-2px);box-shadow:0 22px 40px rgba(120,60,220,.46), inset 0 -3px 0 rgba(0,0,0,.16)}
+  }
+  .noscript{
+    margin:18px 0 0;
+    font-size:.85rem;
+    font-weight:700;
+    color:#dc3d7a;
+  }
+
+  /* ---------- фото ---------- */
+  .photo-block{display:grid;justify-items:center;text-align:center}
+  .polaroid{
+    position:relative;
+    width:min(100%,380px);
+    margin:4px 0 0;
+    padding:12px 12px 0;
+    background:#fff;
+    border-radius:14px;
+    transform:rotate(-2.4deg);
+    box-shadow:0 28px 56px rgba(20,5,60,.42);
+  }
+  .polaroid::before{
+    content:"";
+    position:absolute;
+    top:-13px;
+    left:50%;
+    width:104px;
+    height:28px;
+    transform:translateX(-50%) rotate(2deg);
+    background:rgba(255,255,255,.52);
+    border:1px solid rgba(255,255,255,.65);
+    box-shadow:0 3px 8px rgba(20,5,60,.14);
+    -webkit-backdrop-filter:blur(2px);
+    backdrop-filter:blur(2px);
+  }
+  .photo-frame{
+    aspect-ratio:4/5;
+    border-radius:6px;
+    overflow:hidden;
+    background:linear-gradient(155deg,#cdbcff 0%,#e9c8ff 45%,#ffd9c9 100%);
+    display:grid;
+    place-items:center;
+  }
+  .photo-frame img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .photo-fallback{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    padding:20px;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255,255,255,.55), transparent 34%),
+      radial-gradient(circle at 82% 84%, rgba(255,255,255,.35), transparent 36%);
+  }
+  .phone-illustration{
+    display:block;
+    width:min(56%,178px);
+    height:auto;
+    filter:drop-shadow(0 22px 28px rgba(74,43,189,.3));
+  }
+  .polaroid figcaption{
+    padding:10px 0 16px;
+    font-family:var(--font-hand);
+    font-weight:600;
+    font-size:1.85rem;
+    line-height:1.1;
+    color:#4b2fa8;
+  }
+
+  /* ---------- футер ---------- */
+  .footer{
+    position:relative;
+    z-index:1;
+    display:grid;
+    justify-items:center;
+    gap:8px;
+    padding:0 18px calc(44px + env(safe-area-inset-bottom));
+    text-align:center;
+    color:rgba(255,255,255,.9);
+  }
+  .footer-heart{
+    font-size:1.8rem;
+    line-height:1;
+    animation:heartbeat 2.2s ease-in-out infinite;
+  }
+  .footer p{margin:0;font-size:.95rem;font-weight:700;text-wrap:balance}
+  .footer p.small{font-size:.8rem;font-weight:600;opacity:.72}
+  .music-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    min-height:44px;
+    margin-top:4px;
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,.32);
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:.82rem;
+    letter-spacing:.02em;
+    cursor:pointer;
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    transition:background .2s ease, color .2s ease, transform .18s ease;
+  }
+  .music-pill:active{transform:scale(.97)}
+  .music-pill.is-on{background:rgba(255,255,255,.94);color:#5a3ad6}
+
+  /* ---------- музыка ---------- */
+  .music{
+    position:absolute;
+    z-index:70;
+    top:calc(12px + env(safe-area-inset-top));
+    right:calc(12px + env(safe-area-inset-right));
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.94);
+    color:#5a3ad6;
+    box-shadow:0 12px 28px rgba(20,5,60,.36);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    cursor:pointer;
+    transition:transform .18s ease;
+  }
+  .music:active{transform:scale(.94)}
+  .eq{display:flex;align-items:flex-end;gap:3px;height:20px}  .eq i{
+    width:4px;
+    height:7px;
+    border-radius:2px;
+    background:linear-gradient(180deg,#8b6bff,#ff5fbd);
+    transition:height .2s ease;
+  }
+  .eq i:nth-child(1){height:6px}
+  .eq i:nth-child(2){height:13px}
+  .eq i:nth-child(3){height:9px}
+  .eq i:nth-child(4){height:16px}
+  .music.is-on .eq i{animation:eqBar .9s ease-in-out infinite}
+  .music.is-on .eq i:nth-child(2){animation-delay:.12s}
+  .music.is-on .eq i:nth-child(3){animation-delay:.24s}
+  .music.is-on .eq i:nth-child(4){animation-delay:.36s}
+
+  /* ---------- модалка ---------- */
+  .modal{
+    position:fixed;
+    inset:0;
+    z-index:80;
+    display:grid;
+    align-items:end;
+    justify-items:center;
+  }
+  .modal-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(22,7,55,.64);
+    -webkit-backdrop-filter:blur(6px);
+    backdrop-filter:blur(6px);
+    animation:fadeIn .25s ease both;
+  }
+  .sheet{
+    position:relative;
+    width:min(100%,560px);
+    max-height:88vh;
+    max-height:88svh;
+    overflow:auto;
+    padding:30px 24px calc(26px + env(safe-area-inset-bottom));
+    border-radius:28px 28px 0 0;
+    background:linear-gradient(180deg,#fff 0%,#fff5ff 100%);
+    color:var(--ink);
+    text-align:center;
+    box-shadow:0 -24px 70px rgba(20,5,60,.5);
+    animation:sheetUp .36s cubic-bezier(.2,.9,.25,1.04) both;
+  }
+  .sheet-close{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border:0;
+    border-radius:50%;
+    background:#f0eaff;
+    color:#4b2fa8;
+    font-family:var(--font-head);
+    font-size:1.5rem;
+    font-weight:700;
+    line-height:1;
+    cursor:pointer;
+  }
+  .sheet-emoji{font-size:1.7rem;line-height:1;margin:0 0 6px}
+  .sheet-label{
+    margin:0 0 14px;
+    font-size:.7rem;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#8b6bff;
+  }
+  .wish{
+    margin:0 0 24px;
+    min-height:3.4em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:clamp(1.3rem,5.4vw,1.65rem);
+    line-height:1.4;
+    color:var(--lav-900);
+    text-wrap:balance;
+  }
+  .wish.pop{animation:wishPop .38s cubic-bezier(.2,.8,.3,1) both}
+  .sheet .btn{width:100%}
+
+  /* ---------- появление секций ---------- */
+  .js .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .8s cubic-bezier(.22,.7,.3,1), transform .8s cubic-bezier(.22,.7,.3,1);
+  }
+  .js .reveal.in{opacity:1;transform:none}
+
+  :focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+  @media (min-width:700px){
+    .modal{align-items:center;padding:24px}
+    .sheet{border-radius:28px;padding-bottom:30px}
+    .photo-block .polaroid{margin-top:8px}
+    .hero h1{font-size:clamp(2.6rem,4.3vw,3.5rem)}
+  }
+
+  @media (max-height:700px){
+    .hero{
+      gap:10px;
+      padding-top:calc(18px + env(safe-area-inset-top));
+      padding-bottom:calc(26px + env(safe-area-inset-bottom));
+    }
+    .sticker{width:clamp(84px,23vw,104px)}
+    .hero h1{font-size:clamp(1.7rem,7.4vw,2.4rem)}
+    .lead{font-size:.95rem;line-height:1.45}
+    .countdown{padding:9px 14px}
+    .btn{min-height:50px;padding:13px 22px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+    .hearts span,.ticker-track{animation:none !important}
+    .js .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+<header class="hero">
+  <div class="hearts" aria-hidden="true"></div>
+  <p class="chip">24 ноября · 2026</p>
+  <div class="sticker" aria-hidden="true">
+    <span class="sticker-num">22</span>
+    <span class="sticker-word">года</span>
+  </div>
+  <h1>С Днём рождения,<br><span class="name">Вика!</span></h1>
+  <p class="lead">22 года — и это только начало. Сегодня всё для тебя: музыка, конфетти и самые тёплые слова.</p>
+  <div class="countdown" id="countdown">
+    <span class="cd-label">24 ноября · 2026</span>
+  </div>
+  <button class="btn btn-primary" id="startBtn" type="button">Запустить праздник 🎉</button>
+  <p class="hint">звук и конфетти · подарок ждёт ниже ↓</p>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>С Днём рождения ✦ Вика ✦ 22 года ✦ Ты лучшая ✦</span>
+    <span>С Днём рождения ✦ Вика ✦ 22 года ✦ Ты лучшая ✦</span>
+    <span>С Днём рождения ✦ Вика ✦ 22 года ✦ Ты лучшая ✦</span>
+    <span>С Днём рождения ✦ Вика ✦ 22 года ✦ Ты лучшая ✦</span>
+  </div>
+</div>
+
+<main>
+  <section class="block reveal" id="letter">
+    <p class="eyebrow">Письмо</p>
+    <h2 class="section-title">Пара слов для тебя 💌</h2>
+    <article class="card letter">
+      <p><strong>Вика, с днём рождения!</strong></p>
+      <p>22 — это когда уже точно знаешь, чего не хочешь: Стаса, лишних людей и смен, которые длятся вечность. И когда можно выбирать только то, что приносит радость.</p>
+      <p>Желаю, чтобы Хеликс и Фармленд платили как за двоих, а нервов забирали как за половину. Чтобы мужики встречались только в новостях — и то на расстоянии. Чтобы рядом были люди, которые правда тебя любят, и чтобы ты ни секунды не сомневалась: ты классная.</p>
+      <p>Пусть в 22 будет много смеха до слёз, вкусного кофе, красивых платьев и поводов сказать «я так счастлива».</p>
+      <p class="sign">Ты у меня лучшая. И это не обсуждается. 💜</p>
+    </article>
+  </section>
+
+  <section class="block reveal" id="top">
+    <p class="eyebrow">Рейтинг</p>
+    <h2 class="section-title">Топ вещей в жизни Вики</h2>
+    <article class="card rating-card">
+      <p class="card-note">Чисто по-честному, без статистики:</p>
+      <ul class="rating">
+        <li>
+          <span class="emoji" aria-hidden="true">💜</span>
+          <div>
+            <div class="r-top"><span>Тот, кто сделал этот сайт</span><b>100/100</b></div>
+            <div class="bar"><i style="--w:100%"></i></div>
+            <small>и это взаимно</small>
+          </div>
+        </li>
+        <li>
+          <span class="emoji" aria-hidden="true">😂</span>
+          <div>
+            <div class="r-top"><span>Смех до слёз</span><b>98/100</b></div>
+            <div class="bar"><i style="--w:98%"></i></div>
+            <small>минимум раз в день</small>
+          </div>
+        </li>
+        <li>
+          <span class="emoji" aria-hidden="true">💊</span>
+          <div>
+            <div class="r-top"><span>Хеликс и Фармленд</span><b>84/100</b></div>
+            <div class="bar"><i style="--w:84%"></i></div>
+            <small>пусть добавят зарплату</small>
+          </div>
+        </li>
+        <li>
+          <span class="emoji" aria-hidden="true">🎂</span>
+          <div>
+            <div class="r-top"><span>22 года</span><b>100/100</b></div>
+            <div class="bar"><i style="--w:100%"></i></div>
+            <small>самый лучший возраст</small>
+          </div>
+        </li>
+        <li class="zero">
+          <span class="emoji" aria-hidden="true">🙅&zwj;♀️</span>
+          <div>
+            <div class="r-top"><span>Стас</span><b>0/100</b></div>
+            <div class="bar"><i style="--w:0%"></i></div>
+            <small>так и надо</small>
+          </div>
+        </li>
+        <li class="zero">
+          <span class="emoji" aria-hidden="true">🚫</span>
+          <div>
+            <div class="r-top"><span>Все мужики</span><b>0/100</b></div>
+            <div class="bar"><i style="--w:0%"></i></div>
+            <small>без комментариев</small>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="block reveal" id="gift">
+    <p class="eyebrow">Подарок</p>
+    <h2 class="section-title">22 пожелания внутри 🎁</h2>
+    <article class="card gift-card">
+      <span class="gift-emoji" aria-hidden="true">🎁</span>
+      <p>Внутри 22 пожелания — по одному на каждый твой год. Открывай и загадывай.</p>
+      <button class="btn btn-gift" id="giftBtn" type="button">Открыть подарок</button>
+      <noscript><p class="noscript">Включи JavaScript, чтобы открыть подарок и включить музыку 💜</p></noscript>
+    </article>
+  </section>
+
+  <section class="block reveal photo-block" id="photo">
+    <p class="eyebrow">Фото</p>
+    <h2 class="section-title">Самая красивая — это ты 📸</h2>
+    <figure class="polaroid">
+      <div class="photo-frame">
+        <!-- Если рядом положить фото vika.jpg — оно заменит телефон в рамке -->
+        <img id="vikaPhoto" src="vika.jpg" alt="Смартфон vivo" loading="eager" hidden>
+        <div class="photo-fallback" id="photoFallback">
+          <svg class="phone-illustration" viewBox="0 0 180 340" role="img" aria-label="Смартфон vivo">
+            <defs>
+              <linearGradient id="vivoBody" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3b2488"/>
+                <stop offset=".55" stop-color="#6a45e8"/>
+                <stop offset="1" stop-color="#8b6bff"/>
+              </linearGradient>
+              <linearGradient id="vivoScreen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f0e8ff"/>
+                <stop offset=".5" stop-color="#ffd9f4"/>
+                <stop offset="1" stop-color="#ffe9cf"/>
+              </linearGradient>
+              <linearGradient id="vivoGlow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="vivoClip">
+                <rect x="19" y="15" width="142" height="310" rx="21"/>
+              </clipPath>
+            </defs>
+            <rect x="10" y="6" width="162" height="328" rx="30" fill="#1d0f45" opacity=".3"/>
+            <rect x="14" y="8" width="152" height="324" rx="28" fill="url(#vivoBody)" stroke="#ffffff" stroke-opacity=".3" stroke-width="1.5"/>
+            <rect x="19" y="15" width="142" height="310" rx="21" fill="url(#vivoScreen)"/>
+            <g clip-path="url(#vivoClip)">
+              <rect x="19" y="15" width="142" height="120" fill="url(#vivoGlow)"/>
+              <circle cx="48" cy="78" r="3" fill="#ffffff" opacity=".55"/>
+              <circle cx="132" cy="66" r="5" fill="#ffffff" opacity=".38"/>
+              <circle cx="139" cy="162" r="2.5" fill="#ffffff" opacity=".5"/>
+              <text x="90" y="118" text-anchor="middle" font-family="'Nunito','Segoe UI',sans-serif" font-size="31" font-weight="800" letter-spacing="-.5" fill="#5a3ad6">vivo</text>
+              <path d="M90 205 C78 190 56 195 56 213 C56 232 76 244 90 254 C104 244 124 232 124 213 C124 195 102 190 90 205 Z" fill="#ff5fbd"/>
+              <ellipse cx="76" cy="208" rx="6" ry="3.5" fill="#ffffff" opacity=".35" transform="rotate(-24 76 208)"/>
+              <text x="90" y="229" text-anchor="middle" font-family="'Comfortaa','Trebuchet MS',sans-serif" font-size="21" font-weight="700" fill="#ffffff">22</text>
+              <text x="90" y="292" text-anchor="middle" font-family="'Comfortaa','Trebuchet MS',sans-serif" font-size="12" font-weight="700" letter-spacing="4" fill="#4b2fa8" opacity=".75">vivo</text>
+              <circle cx="90" cy="311" r="3.5" fill="#4b2fa8" opacity=".3"/>
+            </g>
+            <rect x="72" y="23" width="36" height="7" rx="3.5" fill="#2a1660" opacity=".85"/>
+            <rect x="167" y="112" width="3" height="24" rx="1.5" fill="#2a1660" opacity=".5"/>
+          </svg>
+        </div>
+      </div>
+      <figcaption>смартфон vivo · 22 года</figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer class="footer">
+  <span class="footer-heart" aria-hidden="true">💜</span>
+  <p>Сделано с любовью для смартфона vivo</p>
+  <p class="small">24 ноября 2026 · 22 года — только начало ✨</p>
+  <button class="music-pill music-toggle" id="musicBtnFooter" type="button" aria-pressed="false">♪ Включить музыку</button>
+</footer>
+
+<button class="music music-toggle" id="musicBtn" type="button" aria-pressed="false" aria-label="Включить музыку" title="Включить музыку">
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</button>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="wishLabel" aria-describedby="wishText">
+    <button class="sheet-close" type="button" data-close aria-label="Закрыть">×</button>
+    <p class="sheet-emoji" aria-hidden="true">🎁</p>
+    <p class="sheet-label" id="wishLabel">Пожелание 1 из 22</p>
+    <p class="wish" id="wishText"></p>
+    <button class="btn btn-primary" type="button" id="nextWish">Ещё пожелание ✨</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  /* ---------- сердечки на фоне ---------- */
+  var heartsBox = $('.hearts');
+  var glyphs = ['💜', '💖', '✨', '💫', '🌟', '💕'];
+  if (heartsBox && !reduceMotion) {
+    for (var h = 0; h < 9; h++) {
+      var s = document.createElement('span');
+      s.textContent = glyphs[h % glyphs.length];
+      s.style.setProperty('--s', (12 + Math.random() * 22).toFixed(1) + 'px');
+      s.style.left = (3 + Math.random() * 94).toFixed(1) + '%';
+      s.style.top = (4 + Math.random() * 92).toFixed(1) + '%';
+      s.style.setProperty('--d', (4 + Math.random() * 5).toFixed(1) + 's');
+      s.style.animationDelay = (-Math.random() * 7).toFixed(1) + 's';
+      heartsBox.appendChild(s);
+    }
+  }
+
+  /* ---------- обратный отсчёт ---------- */
+  var cd = $('#countdown');
+  function pad2(n) { return n < 10 ? '0' + n : String(n); }
+  function cdUnit(v, label) {
+    return '<span class="cd-unit"><b>' + pad2(v) + '</b><i>' + label + '</i></span>';
+  }
+  function renderCountdown() {
+    if (!cd) return;
+    var now = new Date();
+    var year = now.getFullYear();
+    var start = new Date(year, 10, 24);
+    var end = new Date(year, 10, 25);
+    var target, label, diff;
+
+    /* С 00:00 24 ноября и до конца дня — уже «после»: показываем, сколько идёт праздник */
+    if (now >= start && now < end) {
+      var elapsed = now - start;
+      var eh = Math.floor(elapsed / 3600000);
+      var em = Math.floor(elapsed / 60000) % 60;
+      var es = Math.floor(elapsed / 1000) % 60;
+      cd.classList.add('is-live');
+      cd.innerHTML =
+        '<span class="cd-label">Праздник уже идёт 🎉</span>' +
+        '<span class="cd-units">' +
+          cdUnit(eh, 'ч') + cdUnit(em, 'мин') + cdUnit(es, 'сек') +
+        '</span>';
+      return;
+    }
+
+    cd.classList.remove('is-live');
+
+    if (now < start) {
+      target = start;
+      label = 'До дня рождения';
+    } else {
+      target = new Date(year + 1, 10, 24);
+      label = 'До следующего дня рождения';
+    }
+
+    diff = Math.max(0, target - now);
+    var days = Math.floor(diff / 86400000);
+    var hrs = Math.floor(diff / 3600000) % 24;
+    var mins = Math.floor(diff / 60000) % 60;
+    var secs = Math.floor(diff / 1000) % 60;
+    cd.innerHTML =
+      '<span class="cd-label">' + label + '</span>' +
+      '<span class="cd-units">' +
+        cdUnit(days, 'дн') + cdUnit(hrs, 'ч') + cdUnit(mins, 'мин') + cdUnit(secs, 'сек') +
+      '</span>';
+  }
+  renderCountdown();
+  setInterval(renderCountdown, 1000);
+
+  /* ---------- конфетти ---------- */
+  var canvas = $('#confetti');
+  var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+  var dpr = 1;
+  var particles = [];
+  var rafId = 0;
+  var running = false;
+  var lastT = 0;
+  var COLORS = ['#ff5fbd', '#ffd93d', '#5ff0c4', '#cdbcff', '#ffffff', '#8b6bff', '#ff9f43', '#ff77c8'];
+
+  function sizeCanvas() {
+    if (!canvas || !ctx) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  if (canvas && ctx) {
+    sizeCanvas();
+    window.addEventListener('resize', sizeCanvas);
+  }
+
+  function burst(x, y, count, power) {
+    if (!ctx) return;
+    count = count || 90;
+    if (reduceMotion) count = Math.min(count, 28);
+    power = power || 1;
+    for (var i = 0; i < count; i++) {
+      var angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.45 * power;
+      var speed = (3.5 + Math.random() * 7) * power;
+      particles.push({
+        x: x,
+        y: y,
+        vx: Math.cos(angle) * speed * (0.6 + Math.random() * 0.8),
+        vy: Math.sin(angle) * speed * (0.6 + Math.random() * 0.8),
+        g: 0.14 + Math.random() * 0.09,
+        w: 4 + Math.random() * 6,
+        h: 6 + Math.random() * 8,
+        rot: Math.random() * 6.283,
+        vr: (Math.random() - 0.5) * 0.35,
+        color: COLORS[(Math.random() * COLORS.length) | 0],
+        life: 0,
+        max: 70 + Math.random() * 55,
+        shape: Math.random() < 0.28 ? 'circle' : 'rect'
+      });
+    }
+    if (particles.length > 700) particles.splice(0, particles.length - 700);
+    if (!running) {
+      running = true;
+      lastT = performance.now();
+      rafId = requestAnimationFrame(loop);
+    }
+  }
+
+  function loop(t) {
+    if (!ctx) return;
+    var dt = Math.min((t - lastT) / 16.667, 2.5) || 1;
+    lastT = t;
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.vy += p.g * dt;
+      p.vx *= Math.pow(0.995, dt);
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      p.rot += p.vr * dt;
+      p.life += dt;
+      if (p.life > p.max || p.y > window.innerHeight + 60) {
+        particles.splice(i, 1);
+        continue;
+      }
+      var alpha = Math.max(0, 1 - p.life / p.max);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.w / 2, 0, 6.2832);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      }
+      ctx.restore();
+    }
+    if (particles.length) {
+      rafId = requestAnimationFrame(loop);
+    } else {
+      running = false;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  /* ---------- музыка (синтез, без файлов) ---------- */
+  var Music = {
+    ctx: null,
+    master: null,
+    playing: false,
+    timer: null,
+    nextTime: 0,
+    step: 0,
+    stepDur: 60 / 126 / 2,
+    melody: [
+      72, null, 76, 79, null, 76, 74, 72,
+      69, null, 72, 76, null, 72, 69, 67,
+      72, 76, 79, 84, null, 83, 81, 79,
+      81, 79, 76, 74, 72, null, null, null
+    ],
+    bass: [48, 45, 41, 43],
+    chords: [[48, 52, 55], [45, 48, 52], [41, 45, 48], [43, 47, 50]],
+    init: function () {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      try { this.ctx = new AC(); } catch (e) { return false; }
+      this.master = this.ctx.createGain();
+      this.master.gain.value = 0.8;
+      this.master.connect(this.ctx.destination);
+      return true;
+    },
+    midi: function (m) { return 440 * Math.pow(2, (m - 69) / 12); },
+    note: function (freq, when, dur, type, vol) {
+      if (!this.ctx) return;
+      var o = this.ctx.createOscillator();
+      var g = this.ctx.createGain();
+      o.type = type || 'triangle';
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0, when);
+      g.gain.linearRampToValueAtTime(vol, when + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+      o.connect(g);
+      g.connect(this.master);
+      o.start(when);
+      o.stop(when + dur + 0.05);
+    },
+    playStep: function (i, t) {
+      var m = this.melody[i];
+      if (m) this.note(this.midi(m), t, this.stepDur * 0.98, 'triangle', 0.12);
+      if (i % 8 === 0) {
+        var bar = (i / 8) | 0;
+        this.note(this.midi(this.bass[bar % 4]), t, this.stepDur * 3.7, 'sine', 0.15);
+        for (var k = 0; k < this.chords[bar % 4].length; k++) {
+          this.note(this.midi(this.chords[bar % 4][k]), t, this.stepDur * 7.4, 'sine', 0.03);
+        }
+      }
+    },
+    schedule: function () {
+      if (!this.ctx || !this.playing) return;
+      while (this.nextTime < this.ctx.currentTime + 0.25) {
+        this.playStep(this.step, this.nextTime);
+        this.nextTime += this.stepDur;
+        this.step = (this.step + 1) % this.melody.length;
+      }
+    },
+    chime: function () {
+      var self = this;
+      var t = this.ctx.currentTime + 0.02;
+      var notes = [72, 76, 79, 84];
+      for (var k = 0; k < notes.length; k++) {
+        self.note(self.midi(notes[k]), t + k * 0.095, 0.55, 'sine', 0.11);
+      }
+    },
+    start: function () {
+      if (this.playing) return;
+      if (!this.ctx && !this.init()) return;
+      if (this.ctx.state === 'suspended') this.ctx.resume();
+      this.playing = true;
+      this.master.gain.cancelScheduledValues(this.ctx.currentTime);
+      this.master.gain.setValueAtTime(0.8, this.ctx.currentTime);
+      this.nextTime = this.ctx.currentTime + 0.05;
+      this.step = 0;
+      this.schedule();
+      var self = this;
+      this.timer = setInterval(function () { self.schedule(); }, 60);
+      this.chime();
+    },
+    stop: function () {
+      if (!this.ctx) return;
+      this.playing = false;
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+      var t = this.ctx.currentTime;
+      this.master.gain.cancelScheduledValues(t);
+      this.master.gain.setTargetAtTime(0.0001, t, 0.05);
+      var self = this;
+      setTimeout(function () {
+        if (!self.playing && self.ctx && self.ctx.state === 'running') self.ctx.suspend();
+      }, 320);
+    }
+  };
+
+  var musicBtns = $$('.music-toggle');
+  if (!(window.AudioContext || window.webkitAudioContext)) {
+    musicBtns.forEach(function (b) { b.hidden = true; });
+  }
+  function updateMusicUI() {
+    var on = Music.playing;
+    musicBtns.forEach(function (btn) {
+      btn.classList.toggle('is-on', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var label = on ? 'Выключить музыку' : 'Включить музыку';
+      btn.setAttribute('aria-label', label);
+      btn.title = label;
+      if (btn.classList.contains('music-pill')) {
+        btn.textContent = on ? '♪ Выключить музыку' : '♪ Включить музыку';
+      }
+    });
+  }
+  musicBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (Music.playing) Music.stop();
+      else Music.start();
+      updateMusicUI();
+    });
+  });
+
+  /* ---------- старт праздника ---------- */
+  var startBtn = $('#startBtn');
+  if (startBtn) {
+    startBtn.addEventListener('click', function (e) {
+      if (!Music.playing) Music.start();
+      updateMusicUI();
+      var x = e.clientX || window.innerWidth / 2;
+      var y = e.clientY || window.innerHeight / 2.4;
+      burst(x, y, 110);
+      setTimeout(function () { burst(window.innerWidth * 0.2, window.innerHeight * 0.42, 55); }, 180);
+      setTimeout(function () { burst(window.innerWidth * 0.8, window.innerHeight * 0.44, 55); }, 360);
+      startBtn.classList.add('is-done');
+      startBtn.textContent = 'Праздник запущен 💜';
+    });
+  }
+  if (!reduceMotion) {
+    setTimeout(function () { burst(window.innerWidth / 2, window.innerHeight * 0.3, 55, 0.9); }, 450);
+  }
+
+  /* ---------- подарок с пожеланиями ---------- */
+  var wishes = [
+    'Пусть каждый день начинается с улыбки — даже в понедельник.',
+    'Чтобы карта пополнялась быстрее, чем ты успеваешь её тратить.',
+    'Лёгких смен в Хеликсе и Фармленде — и пусть платят как за двоих.',
+    'Пусть работа приносит только деньги и опыт, а нервы забирает минимально.',
+    'Больше путешествий — даже маленьких, на выходные.',
+    'Чтобы кофе всегда был идеальным, а очереди — только в другие кассы.',
+    'Рядом — только настоящие люди. Остальные пусть идут лесом.',
+    'Мужики — только хорошие. Или никакие. Ты сама решаешь.',
+    'Стас — где-то далеко. Очень далеко. За горизонтом.',
+    'Чтобы тебя любили так же сильно, как ты умеешь любить.',
+    'Меньше поводов для тревог и больше — для счастья.',
+    'Пусть мечты сбываются по расписанию, а лучше — внезапно.',
+    'Смеяться до слёз минимум раз в день.',
+    'Найти дело, от которого загораются глаза.',
+    'Время на себя — без чувства вины.',
+    'Красивые платья и поводы их надеть.',
+    'Цветы без повода — от себя любимой тоже можно.',
+    'Силы на всё, что хочется, и спокойствия на всё, что нет.',
+    'Веры, что всё получится. Потому что обязательно получится.',
+    'Пусть этот год запомнится как лучший.',
+    'Новые знакомства, которые станут важными.',
+    'И помни: тебя очень-очень любят. 💜'
+  ];
+
+  var modal = $('#modal');
+  var wishText = $('#wishText');
+  var wishLabel = $('#wishLabel');
+  var giftBtn = $('#giftBtn');
+  var nextWishBtn = $('#nextWish');
+  var deck = [];
+  var opened = 0;
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = (Math.random() * (i + 1)) | 0;
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function nextWish() {
+    if (!deck.length) {
+      deck = shuffle(wishes.map(function (_, i) { return i; }));
+      opened = 0;
+    }
+    var id = deck.pop();
+    opened++;
+    wishText.textContent = wishes[id];
+    wishLabel.textContent = 'Пожелание ' + opened + ' из 22';
+    wishText.classList.remove('pop');
+    void wishText.offsetWidth;
+    wishText.classList.add('pop');
+    burst(window.innerWidth / 2, window.innerHeight * 0.52, 34, 0.85);
+  }
+  function openGift() {
+    modal.hidden = false;
+    document.body.classList.add('locked');
+    nextWish();
+    var closeBtn = $('.sheet-close', modal);
+    if (closeBtn) setTimeout(function () { closeBtn.focus({ preventScroll: true }); }, 50);
+  }
+  function closeGift() {
+    modal.hidden = true;
+    document.body.classList.remove('locked');
+    if (giftBtn) giftBtn.focus({ preventScroll: true });
+  }
+  if (modal) {
+    if (giftBtn) giftBtn.addEventListener('click', openGift);
+    if (nextWishBtn) nextWishBtn.addEventListener('click', nextWish);
+    modal.addEventListener('click', function (e) {
+      if (e.target.closest('[data-close]')) closeGift();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeGift();
+    });
+  }
+
+  /* ---------- появление секций ---------- */
+  var revealEls = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- фото ---------- */
+  var photo = $('#vikaPhoto');
+  var fallback = $('#photoFallback');
+  if (photo && fallback) {
+    var showPhoto = function () {
+      if (photo.naturalWidth > 0) {
+        photo.hidden = false;
+        fallback.hidden = true;
+      }
+    };
+    var showFallback = function () {
+      photo.hidden = true;
+      fallback.hidden = false;
+    };
+    photo.addEventListener('load', showPhoto);
+    photo.addEventListener('error', showFallback);
+    if (photo.complete) {
+      if (photo.naturalWidth > 0) showPhoto();
+      else showFallback();
+    }
+  }
+})();
+</script>
+</body>
+</html>
